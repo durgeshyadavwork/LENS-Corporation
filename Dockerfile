@@ -4,11 +4,14 @@ WORKDIR /usr/src/app
 
 EXPOSE 3000
 
-COPY package*.json ./
+COPY . .
 
 RUN npm install
 
-COPY . .
 
 
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
+
+
+
+
