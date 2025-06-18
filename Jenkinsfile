@@ -72,15 +72,14 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                sh """
+        sh """
             cd Terraform/
             terraform init
             terraform apply -auto-approve \
                 -var="environment=${params.ENVIRONMENT}" \
                 -var="image_tag=${IMAGE_TAG}"
         """
-                }
-            }
+    }
         }
         
 
