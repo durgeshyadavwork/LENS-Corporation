@@ -72,16 +72,20 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                dir('Terraform') {
-                    sh """
-                        terraform init
-                        terraform apply -auto-approve \
-                            -var="environment=${params.ENVIRONMENT}" \
-                            -var="image_tag=${IMAGE_TAG}"
-                    """
+                sh """
+            cd Terraform/
+            terraform init
+            terraform apply -auto-approve \
+                -var="environment=${params.ENVIRONMENT}" \
+                -var="image_tag=${IMAGE_TAG}"
+        """
                 }
             }
         }
+        
+
+
+
 
         stage('Trigger ASG Refresh') {
             steps {
