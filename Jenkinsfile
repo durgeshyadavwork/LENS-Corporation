@@ -30,7 +30,7 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git branch: 'application',
+                git branch: 'main',
                     url: 'https://github.com/durgeshyadavwork/LENS-Corporation.git'
             }
         }
